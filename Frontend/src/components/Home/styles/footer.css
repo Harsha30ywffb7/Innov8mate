@@ -1,0 +1,117 @@
+.footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: first baseline;
+    background-color: rgb(255, 186, 125);
+    border-radius: 20px;
+    margin-top: 20px;
+}
+.footer-left{
+    padding: 20px;
+    
+}
+.title {
+    text-align: center; /* Align title in the center */
+    font-size: 40px; /* Add unit (px) for font size */
+}
+
+span {
+    font-size: 48px;
+    color: black;
+}
+
+input {
+    padding: 10px;
+    border-radius: 6px;
+    margin-right: 30px;
+}
+.email{
+    display: flex;
+    justify-content: center;
+}
+
+.footer-left button {
+    padding: 10px;
+    background-color: rgb(240, 64, 64);
+    cursor: pointer;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    transition: background-color 0.3s; /* Add transition for smooth color change */
+}
+
+.footer-left button:hover {
+    background-color: #ff0000; /* Change button color on hover */
+}
+
+.text {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center; /* Adjust text size */
+}
+.copyrights{
+    text-align: center;
+}
+.socialicons {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Add space between social media icons */
+}
+
+.socialicons a {
+    color: black;
+    transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+.socialicons a:hover {
+    color: rgb(233, 232, 229); /* Change icon color on hover */
+}
+.footer-right {
+    display: flex;
+    justify-content: space-between;
+}
+
+.company, .community, .contact-info {
+    flex: 2;
+    padding: 25px;
+}
+
+ul {
+    padding: 5px;
+    margin: 0;
+}
+ul li a{
+    text-decoration: none;
+    color: rgb(12, 9, 9);
+    transition: 0.5s;
+}
+ul li a:hover{
+    color: rgb(230, 112, 16);
+    text-decoration: underline;
+}
+.contact-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    display: flex;
+    align-items: center;/* Add margin between items */
+}
+
+.Icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: white;
+    margin-right: 10px;
+}
+
+.heading {
+    font-weight: bold; /* Make headings bold */
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}

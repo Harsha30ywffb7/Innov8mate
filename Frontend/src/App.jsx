@@ -1,35 +1,72 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import {createBrowserRouter, RouterProvider,Outlet} from 'react-router-dom';
+import Navbar from './components/Home/Navbar.jsx';
+import Footer from './components/Home/Footer.jsx';
+import Home from './components/Home/Home.jsx';
+import Error from './Common/Error.jsx';
+import IdeasMainPage from './components/Ideas/IdeasMainPage.jsx';
+import HackathonPage from './components/Hackathons/HackathonPage.jsx';
+import Contact from './Common/Contact.jsx';
+import IdeaDescription from './components/Ideas/IdeaDescription.jsx';
+import DashBoard from './components/Funding/DashBoard.jsx';
+import Signup from './Common/Signup.jsx';
+import RegisterPage from './Common/RegisterPage.jsx';
+import FounderForm from './components/Funding/FounderForm.jsx';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const AppLayout = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+        <Navbar/>
+        <Outlet/>
+        <Footer/>
+    </div>
+  );
+};
+
+const appRouter = createBrowserRouter([
+  {
+    element:<AppLayout/>,
+    errorElement:<Error/>,
+    children:[
+      {
+        path:"/",
+        element:<Home/>
+      },
+      {
+        path:"/pitchideas",
+        element:<IdeasMainPage/>,
+      },
+      {
+        path:'/hackathons',
+        element:<HackathonPage/>
+      },
+      {
+        path:'/contact',
+        element:<Contact/>
+      },
+      {
+        path:'/funding',
+        element:<DashBoard/>
+      },
+      {
+        path:'/signin',
+        element:<Signup/>
+      },
+      {
+        path:'/registration',
+        element:<RegisterPage/>
+      },
+      {
+        path:'/funding/register',
+        element:<FounderForm/>
+      }
+    ],
+  },
+
+]);
+
+const App=()=>{
+  return(<RouterProvider router={appRouter}/>)
 }
 
-export default App
+export default App;

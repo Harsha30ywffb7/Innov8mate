@@ -1,0 +1,353 @@
+/**Styles order
+**1.UserIdeaspage
+**2.cards container
+**3.Each card 
+**4.Idea description page css
+**5.Post Idea page css
+**
+**n.Responsive Design
+*/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+
+/**UserIdeas Main page*/
+.IdeasMainpage{
+    font-family: 'Poppins', sans-serif;
+}
+
+/*Header css here*/
+.ideaHeader {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 100px; /* Apply margin of 100px horizontally */
+  }
+  
+  .searchInput {
+    display: flex;
+    align-items: center;
+  }
+  .addIdea .add-btn{
+    height: 30px;
+    border-radius: 10px;
+    background-color: white;
+    border: black;
+    border: 1px solid lightgray;
+    cursor: pointer;
+  }
+
+  .add-btn:hover{
+    background-color: black;
+    color: white;
+  }
+  
+  .searchInput input {
+    margin-left: 5px;
+    height: 18px;
+  }
+  
+  .dropdown {
+    display: flex;
+    align-items: center;
+  }
+  
+  .dropdown select {
+    margin-left: 10px;
+    padding: 5px;
+  }
+  
+  .empty {
+    /* Empty div, can be used for spacing */
+  }  
+
+
+
+/** All cards Cards Container
+*/
+.CardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 100px;
+}
+
+
+
+
+
+/**Each Card */
+.Ideacard {
+    cursor: pointer;
+    width: 300px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.user , .ideaDetails{
+    padding: 0px 15px;
+}
+.user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user .userprofile{
+    width: 30px;
+    height: 30px;
+}
+.userprofile img{
+    width: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+}
+.user .name p{
+    color: black;
+    font-size: 16px;
+}
+
+.ideaDetails .ideaTitle p{
+    font-weight: 600;
+    margin-top: 0px;
+}
+.ideaDetails .ideaDescription p{
+    color: rgb(96,96,96);
+    margin:0px ;
+    overflow: hidden;
+    display: -webkit-box; /* For older versions of WebKit-based browsers */
+    -webkit-line-clamp: 2; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    max-height: calc(1.2em * 3);
+}
+.ideaLikeIcons{
+    margin: 0px 40px;
+    display: flex;
+    justify-content: space-around;
+}
+.ideaLikeIcons .idea-btn{
+    background-color: white;
+    border: none;
+}
+.ideaLikeIcons .likes {
+    margin-right: 5px;
+  }
+  
+  .likeCounts {
+    margin: 0px 40px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .likeCounts p {
+    margin-top: 0px;
+    margin-right: 10px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  /*Styling for like button*/
+  .idea-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    margin-right: 10px;
+  }
+  
+  .idea-btn.liked {
+    color: orange;
+  }
+  
+  .heart-animate {
+    animation: heartBeat 0.5s ease-in-out;
+  }
+  
+  @keyframes heartBeat {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.3);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+
+  /***idea Description page Css**/
+body{
+  background-color:white;
+}
+
+  .bg-white-200{
+margin-left: 200px;
+margin-right: 200px;
+padding: 10px;
+
+  }
+
+
+  .desc-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 50px;
+  
+
+  }
+
+  .desc-header > .desc-back{
+    cursor: pointer;
+  }
+  .desc-header > .desc-title p{
+    font-size: 1.5rem;
+    font-weight: 600
+  }
+
+  .desc-header >.desc-profile{
+    width: 30px;
+    height: 30px;
+}
+.desc-profile > img{
+    width: 100%;
+    border-radius: 50%;
+    object-fit: contain;  
+    cursor: pointer;
+}
+
+
+
+.ps_header,.unique_header,.approach_header,.desc_body_description,.support_header,.prototype_header{
+  margin-bottom: 5px;
+}
+
+
+.ps_content,.unique_content,.approach_content,.desc_matter,.support_desc,.prototype_ref{
+border: 1px solid gray;
+border-radius: 10px;
+padding: 10px;
+}
+
+.desc-container >div > p{
+  padding: 3px;
+  margin: 0px;
+  margin-left: 5px;
+}
+
+.desc-body, .support, .prototype, .problem_statement, .uniqueness, .approach{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+.desc_body_description p, .support_header >p,  .prototype_header>p, .approach_header>p, .unique_header >p, .ps_header >p{
+  color: rgb(7, 4, 2);
+  font-size: 1.4rem;
+}
+
+.prototype_ref a{
+  padding: 10px;
+  text-decoration: none;
+}
+.support_btn{
+  display: flex;
+  justify-content: center;
+}
+
+.support_btn button{
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+
+}
+
+/**Posting Idea page */
+.PostIdea_container {
+  padding: 20px;
+}
+
+.PostIdea_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.PostIdea-profile img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.back_button {
+  cursor: pointer;
+}
+.star_text{
+  margin: 0px 20vw;
+  font-size: 8px;
+}
+.form_section {
+  margin: 0px 20vw;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form_group {
+  margin-bottom: 20px;
+}
+
+.form_group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form_group input[type="text"],
+.form_group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.PostIdea_submit{
+  display: flex;
+  justify-content: center;
+}
+.PostIdea_submit > button {
+  justify-content: center;
+  padding: 10px;
+  color: #ffffff;
+  margin-top: 10px;
+  background-color: #060606;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.PostIdea_submit > button:hover {
+  opacity: 0.8;
+}
+
+
+/**Responsive Design*/
+
+@media (min-width: 768px) {
+    .Ideacard {
+        width: 45%; /* Two cards side by side on desktop */
+    }
+}

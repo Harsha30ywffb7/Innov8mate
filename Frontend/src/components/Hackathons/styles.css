@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+
+
+/*User Hackathon page*/
+.Hackpage-container{
+    margin: 10px 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*User Page Hackathons css*/
+.card{
+    margin: 10px;
+    padding: 0px;
+    width: 35%;
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 0px 10px;
+}
+.hackpageheading p{
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 500;
+    margin: 0px;
+}
+
+.mainlogo{
+    display: flex;
+    align-items: center;
+}
+
+.mainlogo .hack-logo{
+    width: 25%;
+}
+
+
+.hackathon .name{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-right: 20px;
+    margin-bottom: 0px;
+    overflow: hidden;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.hackathon .organisation{
+    margin-top: 0px;
+    color: rgb(71, 71, 71);
+    font-size: 0.8rem;
+}
+
+.entities {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.entities span{
+    font-size: 0.9rem;
+    margin: 0px;
+    padding: 10px;
+    font-weight: 500;
+}
+
+.tag-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.tag-body{
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    margin-left: 20px;
+}
+
+.tag-body p{
+    font-size: 0.7rem;
+}
+
+
+
+/*Deatils Page Css */
+.details-container{
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    margin: 15px;
+    width: 70%;
+}
+@media (max-width:769px) {
+    .hackpageheading{
+        font-size: 1.2rem;
+    }
+    .card{
+        width: 100%;
+    }
+}
