@@ -1,8 +1,7 @@
-import React from "react";
-import './styles.css'
+import React, { useState } from "react";
 import CardsContainer from "./card";
-import Navbar from "../Home/Navbar";
-import Header from "./Header";
+import { useEffect } from "react";
+import { resolvePath } from "react-router-dom";
 
 
 
@@ -27,9 +26,27 @@ import Header from "./Header";
 
 
 const IdeasMainpage=()=>{
+    const[data, setData ] = useState([]);
+
+    const fetchApi = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/api',{method:'GET'});
+            const json = await response.json();
+            console.log(json);
+            // Handle JSON data here
+        } catch (error) {
+            // Handle fetch error
+            console.error('Error fetching API:', error);
+        }
+    }
+    
+    useEffect(() => {
+        fetchApi(); // Call the fetchApi function here
+    }, []);
     return(
         <div className="IdeasMainpage">
             <CardsContainer/>
+            <div></div>
         </div>
     )
 }

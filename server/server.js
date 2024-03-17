@@ -1,8 +1,14 @@
-import express, { request, response } from "express";
+const express = require('express');
+const cors = require('cors');
 const app = express();
+
+app.use(cors());
+
+const data = {users:["user1","user2","user3","user4","user5"]}
 app.get('/api',(request, response)=>{
+    console.log("server is running");
     console.log(request);
-    return response.status(234).send("Hello harsha, This MERN");
+    response.status(234).send(data);
 })
 
 const PORT = 5000;
