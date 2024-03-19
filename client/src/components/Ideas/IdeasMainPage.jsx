@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import CardsContainer from "./card";
-import { useEffect } from "react";
-import { resolvePath } from "react-router-dom";
+import IdeaHeader from './Header';
 
 
 
-// div buttons
-/*
-*total on div
+//
+/*total on div
     *Navbar
     * buttons div
         *Add idea button navigate.
@@ -26,25 +24,9 @@ import { resolvePath } from "react-router-dom";
 
 
 const IdeasMainpage=()=>{
-    const[data, setData ] = useState([]);
-
-    const fetchApi = async () => {
-        try {
-            const response = await fetch('http://localhost:5000/api',{method:'GET'});
-            const json = await response.json();
-            console.log(json);
-            // Handle JSON data here
-        } catch (error) {
-            // Handle fetch error
-            console.error('Error fetching API:', error);
-        }
-    }
-    
-    useEffect(() => {
-        fetchApi(); // Call the fetchApi function here
-    }, []);
     return(
         <div className="IdeasMainpage">
+            <IdeaHeader/>
             <CardsContainer/>
             <div></div>
         </div>

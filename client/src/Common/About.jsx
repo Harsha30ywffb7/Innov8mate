@@ -12,7 +12,7 @@ const stats = [
   { name: 'Companies funded', value: '40' },
   { name: 'Jobs Hired', value: '25' },
 ]
-const About=()=> {
+const About = () => {
   return (
     <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
       <img
@@ -48,17 +48,17 @@ const About=()=> {
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">Work with us</h2>
           <p className="mt-6 text-lg leading-8 text-gray-300">
-          Welcome to our transformative platform! We tackle academic and entrepreneurial challenges through collaboration, funding, and talent acquisition. From project management to idea pitching, we empower innovators. Democratizing funding and recognizing talents, we foster growth. Streamlining job hiring, we connect companies with top talent. Join us in creating a dynamic ecosystem for innovation and professional advancement.
+            Welcome to our transformative platform! We tackle academic and entrepreneurial challenges through collaboration, funding, and talent acquisition. From project management to idea pitching, we empower innovators. Democratizing funding and recognizing talents, we foster growth. Streamlining job hiring, we connect companies with top talent. Join us in creating a dynamic ecosystem for innovation and professional advancement.
           </p>
         </div>
         <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
-            
-             <Link to='/leadership'>
-             <p className="text-center text-3xl">
+
+            <Link to='/leadership'>
+              <p className="text-center text-3xl text-orange-500 hover:text-white">
                 Meet our leadership <span aria-hidden="true">&rarr;</span>
               </p>
-             </Link>
+            </Link>
 
           </div>
           <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">

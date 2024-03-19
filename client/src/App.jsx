@@ -1,21 +1,38 @@
 import React from 'react';
 import {createBrowserRouter, RouterProvider,Outlet} from 'react-router-dom';
+
 import Navbar from './components/Home/Navbar.jsx';
 import Footer from './components/Home/Footer.jsx';
 import Home from './components/Home/Home.jsx';
 import Error from './Common/Error.jsx';
-import IdeasMainPage from './components/Ideas/IdeasMainPage.jsx';
-import HackathonPage from './components/Hackathons/HackathonPage.jsx';
 import Contact from './Common/Contact.jsx';
-import IdeaDescription from './components/Ideas/IdeaDescription.jsx';
-import DashBoard from './components/Funding/DashBoard.jsx';
+
+import About from './Common/About.jsx';
 import Signup from './Common/Signup.jsx';
 import RegisterPage from './Common/RegisterPage.jsx';
-import FounderForm from './components/Funding/FounderForm.jsx';
-import JobsPage from './components/Jobs/JobsPage.jsx';
-import CollaborationPage from './components/Collaboration/CollaborationPage.jsx';
-import About from './Common/About.jsx';
 import Leadership from './Common/Leadership.jsx';
+
+import IdeasMainPage from './components/Ideas/IdeasMainPage.jsx';
+import PostIdea from './components/Ideas/PostIdea.jsx';
+import IdeaDescription from './components/Ideas/IdeaDescription.jsx';
+
+
+import HackathonPage from './components/Hackathons/HackathonPage.jsx';
+
+
+import DashBoard from './components/Funding/DashBoard.jsx';
+import FounderForm from './components/Funding/FounderForm.jsx';
+import InvestmentPage from './components/Funding/InvestmentPage.jsx';
+
+
+import DashBoardProjects from './components/Collaboration/DashBoardProjects.jsx';
+import DescriptionProject from './components/Collaboration/DescriptionProject.jsx';
+
+import JobsPage from './components/Jobs/JobsPage.jsx';
+import JobDescription from './components/Jobs/JobDescription.jsx';
+
+
+
 
 const AppLayout = () => {
   return (
@@ -73,8 +90,12 @@ const appRouter = createBrowserRouter([
         element:<JobsPage/>
       },
       {
+        path:'/jobs/job/:id',
+        element:<JobDescription/>
+      },
+      {
         path:'/collaboration',
-        element:<CollaborationPage/>
+        element:<DashBoardProjects/>
       },
       {
         path:'/about',
@@ -84,7 +105,18 @@ const appRouter = createBrowserRouter([
         path:'/leadership',
         element:<Leadership/>
       },
-      
+      {
+        path:'/ideas/postidea',
+        element:<PostIdea/>
+      },
+      {
+        path:'/funding/company',
+        element:<InvestmentPage/>
+      },
+      {
+        path:'/collaboration/projects/:id',
+        element:<DescriptionProject/>
+      }
     ],
   },
 

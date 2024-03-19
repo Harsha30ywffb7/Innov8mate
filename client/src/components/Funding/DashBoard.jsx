@@ -13,14 +13,14 @@ const DashBoard = () => {
       <div className='flex justify-between mt-4 gap-5'>
 
         <Link to='/funding/register'>
-            <div className='w-6/12'>
-              <div className='mx-auto mb-7 rounded-xl cursor-pointer text-center  text-white w-52  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>
-                <p className='p-4 '>Need funding </p>
-              </div>
-              <div className='rounded-lg border-2 border-solid border-slate-500'>
-                <Company/>
-              </div>
+          <div className='w-6/12'>
+            <div className='mx-auto mb-7 rounded-xl cursor-pointer text-center  text-white w-52  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>
+              <p className='p-4 '>Need funding </p>
             </div>
+            <div className='rounded-lg border-2 border-solid border-slate-500'>
+              <Link to='/funding/company'> <Company /></Link>
+            </div>
+          </div>
         </Link>
 
 
@@ -29,7 +29,7 @@ const DashBoard = () => {
             <p className='p-4'>Explore to Invest</p>
           </div>
           <div className='rounded-lg border-2 border-solid border-slate-500'>
-            <Company/>
+            <Link to='/funding/company'> <Company /></Link>
           </div>
         </div>
 

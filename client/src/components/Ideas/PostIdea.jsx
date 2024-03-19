@@ -1,10 +1,5 @@
 import React from 'react';
 import { BiArrowBack } from 'react-icons/bi';
-import './styles.css';
-// Import CSS file
-/***
- * *From here data has to add to the databases.
- */
 
 const IdeaPostingPage = () => {
     return (
