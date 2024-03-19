@@ -2,14 +2,27 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { JobsApi } from '../../config/JobsApi';
 import JobHeader from './JobHeader';
+import { useEffect,useState } from 'react';
 
+
+// const jobslist = JobsApi[0].jobs;
+// for(let i=0; i<jobslist.length; i++){
+//   console.log(jobslist[i].jobTitle);
+// }
+// console.log(jobslist);
 // const fetchApi = async () => {
 //   const response = await fetch('https://jobicy.com/api/v2/remote-jobs');
-//   const json = await response.json();
+//   const json = await response();
 //   console.log(json);
 // }
 
 const JobCard = ({id, companyLogo, companyName, jobTitle, jobType, jobIndustry, jobLevel, jobGeo }) => {
+  // useEffect(()=>{
+  //   fetchApi()
+  // },[]);
+
+  //const[jobs,setJobs]= 
+
   return (
     <div>
       <div className="bg-white rounded-lg shadow-md p-6 m-4 flex">
