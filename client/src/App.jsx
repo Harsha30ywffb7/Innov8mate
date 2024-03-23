@@ -116,6 +116,10 @@ const appRouter = createBrowserRouter([
       {
         path:'/collaboration/projects/:id',
         element:<DescriptionProject/>
+      },
+      {
+        path:'/contact',
+        element:<Contact/>
       }
     ],
   },

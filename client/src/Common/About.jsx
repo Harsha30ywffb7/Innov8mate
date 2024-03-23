@@ -1,11 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const links = [
-  { name: 'Open roles', href: '#' },
-  { name: 'Internship program', href: '#' },
-  { name: 'Our values', href: '#' },
-  { name: 'Meet our leadership', href: '#' },
-]
+
 const stats = [
   { name: 'Ideas supported', value: '100+' },
   { name: 'Project collaborations', value: '300+' },
