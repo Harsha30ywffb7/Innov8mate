@@ -1,5 +1,4 @@
 import React from "react";
-import './styles.css';
 import { Link } from 'react-router-dom';
 /* ***IMPORTANT NOTES
  *For in this page.
@@ -23,21 +22,21 @@ import { BiArrowBack } from 'react-icons/bi';
 const IdeaDescription = () => {
     return (
         <div className="bg-white-200 ">
-            <div className="desc-header">
-                <div className="desc-back">
+            <div className="flex justify-between mx-10">
+                <div className="w-10 h-10">
                     <BiArrowBack />
                 </div>
-                <div className="desc-title">
+                <div className="text-xl font-semibold  ">
                     <p>Sustainable Nature</p>
                 </div>
                 <div className="desc-profile">
-                    <img src="https://source.unsplash.com/400x400/?man" alt="profile" />
+                    <img src="https://source.unsplash.com/400x400/?man" alt="profile" className="w-9 h-9" />
                 </div>
             </div>
 
 
-            <div className="main-body">
-                <div className="prblm_stmnt ">
+            <div className="mx-20 shadow-md my-10">
+                <div className="text-xl ml-5 ">
                     <div className="ps_header">
                         <p>Problem Statement</p>
                     </div>
@@ -46,7 +45,7 @@ const IdeaDescription = () => {
                     </div>
                 </div>
 
-                <div className="uniqueness">
+                <div className="text-xl ml-5">
                     <div className="unique_header">
                         <p>Uniqueness</p>
                     </div>
@@ -55,7 +54,7 @@ const IdeaDescription = () => {
                     </div>
                 </div>
 
-                <div className="approach">
+                <div className="text-xl ml-5">
                     <div className="approach_header">
                         <p>Your Approach</p>
                     </div>
@@ -64,7 +63,7 @@ const IdeaDescription = () => {
                     </div>
                 </div>
 
-                <div className="desc-body">
+                <div className="text-xl ml-5">
                     <div className="desc_body_description">
                         <p>Description</p>
                     </div>
@@ -73,7 +72,7 @@ const IdeaDescription = () => {
                     </div>
                 </div>
 
-                <div className="support">
+                <div className="text-xl ml-5">
                     <div className="support_header">
                         <p>Support Type</p>
                     </div>
@@ -82,7 +81,7 @@ const IdeaDescription = () => {
                     </div>
                 </div>
 
-                <div className="prototype">
+                <div className="text-xl ml-5">
                     <div className="prototype_header">
                         <p>Prototype</p>
                     </div>
@@ -91,8 +90,8 @@ const IdeaDescription = () => {
                     </div>
                 </div>
 
-                <div className="support_btn">
-                    <button>Support Idea</button>
+                <div className="flex justify-center ">
+                    <button className=" px-2 py-2 bg-black text-white">Support Idea</button>
                 </div>
             </div>
 

@@ -1,31 +1,6 @@
 import React from 'react';
 import Company from './CompaniesList';
-const foundedList = [
-    {
-        "id": 1,
-        "profile": "https://www.example.com/company1",
-        "title": "GreenTech Solutions Inc.",
-        "founders": ["Alice Smith", "John Doe"],
-        "sector": "Clean Technology",
-        "location": "San Francisco, CA"
-    },
-    {
-        "id": 2,
-        "profile": "https://www.example.com/company2",
-        "title": "EduTech Interactive",
-        "founders": ["David Lee", "Sarah Jones"],
-        "sector": "Education Technology",
-        "location": "New York, NY"
-    },
-    {
-        "id": 3,
-        "profile": "https://www.example.com/company3",
-        "title": "Healthify Inc.",
-        "founders": ["Emily Williams", "Michael Brown"],
-        "sector": "Healthcare",
-        "location": "London, UK"
-    }
-];
+
 // Startups from the global list of startups. recently should be added here.
 const Header = () => {
     return (
@@ -66,18 +41,5 @@ const Header = () => {
     )
 }
 
-const ExploreStartupsList = () => {
-  return (
-    <div>
-        <div className='grid grid-cols-2'>
-            {
-                foundedList.map((index, each)=>{
-                    return <Company key={index} {...each}/>
-                })
-            }
-        </div>
-    </div>
-  )
-}
 
-export default ExploreStartupsList
+export default Header;
