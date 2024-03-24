@@ -21,23 +21,24 @@ import { Link } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
 const IdeaDescription = () => {
     return (
-        <div className="bg-white-200 ">
-            <div className="flex justify-between mx-10">
+        <div className="bg-white-200 my-6">
+            <div className="flex justify-between mx-32">
                 <div className="w-10 h-10">
                     <BiArrowBack />
                 </div>
                 <div className="text-xl font-semibold  ">
                     <p>Sustainable Nature</p>
                 </div>
-                <div className="desc-profile">
-                    <img src="https://source.unsplash.com/400x400/?man" alt="profile" className="w-9 h-9" />
+                <div className="w-10 h-10 rounded-full overflow-hidden">
+                    <img src="https://source.unsplash.com/400x400/?man" alt="profile" />
                 </div>
             </div>
 
 
-            <div className="mx-20 shadow-md my-10">
-                <div className="text-xl ml-5 ">
-                    <div className="ps_header">
+            <div className="mx-32 pb-6 my-10 shadow-lg">
+                
+                <div className="text-xl ml-20 mb-10 mr-20  ">
+                    <div className="font-bold mb-3">
                         <p>Problem Statement</p>
                     </div>
                     <div className="ps_content">
@@ -45,8 +46,8 @@ const IdeaDescription = () => {
                     </div>
                 </div>
 
-                <div className="text-xl ml-5">
-                    <div className="unique_header">
+                <div className="text-xl ml-20 mb-10 mr-20 ">
+                    <div className="font-bold mb-3">
                         <p>Uniqueness</p>
                     </div>
                     <div className="unique_content">
@@ -54,8 +55,8 @@ const IdeaDescription = () => {
                     </div>
                 </div>
 
-                <div className="text-xl ml-5">
-                    <div className="approach_header">
+                <div className="text-xl ml-20 mb-10 mr-20 ">
+                    <div className="font-bold mb-3">
                         <p>Your Approach</p>
                     </div>
                     <div className="approach_content">
@@ -63,8 +64,8 @@ const IdeaDescription = () => {
                     </div>
                 </div>
 
-                <div className="text-xl ml-5">
-                    <div className="desc_body_description">
+                <div className="text-xl ml-20 mb-10 mr-20 ">
+                    <div className="font-bold mb-3">
                         <p>Description</p>
                     </div>
                     <div className="desc_matter">
@@ -72,8 +73,8 @@ const IdeaDescription = () => {
                     </div>
                 </div>
 
-                <div className="text-xl ml-5">
-                    <div className="support_header">
+                <div className="text-xl ml-20 mb-10 mr-20 ">
+                    <div className="font-bold mb-3">
                         <p>Support Type</p>
                     </div>
                     <div className="support_desc">
@@ -81,8 +82,8 @@ const IdeaDescription = () => {
                     </div>
                 </div>
 
-                <div className="text-xl ml-5">
-                    <div className="prototype_header">
+                <div className="text-xl ml-20 mb-10 mr-20 ">
+                    <div className="font-bold mb-3">
                         <p>Prototype</p>
                     </div>
                     <div className="prototype_ref">
@@ -90,8 +91,8 @@ const IdeaDescription = () => {
                     </div>
                 </div>
 
-                <div className="flex justify-center ">
-                    <button className=" px-2 py-2 bg-black text-white">Support Idea</button>
+                <div className="flex justify-center">
+                    <button className=" px-2 py-2  rounded bg-black text-white">Support Idea</button>
                 </div>
             </div>
 
