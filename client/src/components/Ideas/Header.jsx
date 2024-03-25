@@ -4,26 +4,32 @@ import { Link } from 'react-router-dom';
 
 const IdeaHeader = () => {
   return (
-    <div className="mt-10 py-5 bg-orange-100 flex justify-around mx-5 rounded-md">
-      <div className="searchInput">
-        <BiSearch className='h-6 w-6 mr-3' />
-        <input type="text" placeholder="  Search Ideas" className='py-5 rounded-sm mr-3' />
-        <button className='text-white bg-orange-500 py-2 px-1 rounded-md'>Search</button>
+    <div className="mt-1 py-5 bg-orange-100 flex justify-around items-center mx-5 rounded-md">
+      <div className="flex items-center searchInput">
+        <div className="relative mr-1">
+          <input type="text" placeholder="Search Ideas" className="py-3 px-4 w-48 rounded-md border border-gray-300 focus:outline-none focus:ring focus:border-orange-500" />
+          <div class="absolute inset-y-0 left-32 flex items-center pl-3">
+            <BiSearch class="h-6 w-6 text-gray-400" />
+          </div>
+        </div>
+        <button className='text-white bg-orange-500 py-2 px-2 rounded-md'>Search</button>
       </div>
+
       <div className="addIdea">
         <Link to='/ideas/postidea'>
           <button className='rounded-lg bg-black text-white px-2 py-1'>+ Add Idea</button>
         </Link>
       </div>
       <div className="dropdown">
-        <label>
-          Sort by:
-          <select>
+    <label className="text-gray-700">
+        Sort by :
+        <select className="border border-gray-300 rounded-md px-3 py-1 ml-1 focus:outline-none focus:border-orange-500">
             <option value="latest">Latest</option>
             <option value="oldest">Oldest</option>
-          </select>
-        </label>
-      </div>
+        </select>
+    </label>
+</div>
+
       <div className="empty"></div>
     </div>
   );
