@@ -91,7 +91,7 @@ const Profilepage = () => {
                     <p className='text-xl font-semibold mr-5'>Ideas Supported </p>
                     <div className='flex'>
                         <div className='overflow-auto-x'>
-                        
+                        <CardsContainer/>
                         </div>
                     </div>
                 </div>
