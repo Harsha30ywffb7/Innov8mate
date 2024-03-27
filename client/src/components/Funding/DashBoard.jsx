@@ -17,7 +17,7 @@ const DashBoard = () => {
             </div>
           </Link>
           <p className='text-center my-4 text-xl font-semibold'>your Companies</p>
-          <div className='rounded-lg border-2 border-solid border-slate-500 max-h-[300px] overflow-y-auto no-scrollbar'>
+          <div className='rounded-lg border-2 border-solid border-slate-300 max-h-[300px] overflow-y-auto no-scrollbar'>
             <Link to='/funding/company'> <Company /></Link>
             <Link to='/funding/company'> <Company /></Link>
             <Link to='/funding/company'> <Company /></Link>
@@ -36,7 +36,7 @@ const DashBoard = () => {
             </div>
           </Link>
           <p className='text-center my-4 text-xl font-semibold'>Explore companies</p>
-          <div className='rounded-lg border-2 border-solid border-slate-500 max-h-[300px] overflow-y-auto  no-scrollbar'>
+          <div className='rounded-lg border-2 border-solid border-slate-300 max-h-[300px] overflow-y-auto  no-scrollbar'>
             <Link to='/funding/company'> <Company /></Link>
             <Link to='/funding/company'> <Company /></Link>
             <Link to='/funding/company'> <Company /></Link>

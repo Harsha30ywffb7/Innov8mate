@@ -21,7 +21,7 @@ import { Link } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
 const IdeaDescription = () => {
     return (
-        <div className="bg-white-200 my-6">
+        <div className="bg-white-200 my-10">
             <div className="flex justify-between mx-32">
                 <div className="w-10 h-10">
                     <BiArrowBack />
