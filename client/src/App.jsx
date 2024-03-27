@@ -33,8 +33,6 @@ import JobsPage from './components/Jobs/JobsPage.jsx';
 import JobDescription from './components/Jobs/JobDescription.jsx';
 
 
-
-
 const AppLayout = () => {
   return (
     <div>

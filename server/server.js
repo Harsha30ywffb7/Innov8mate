@@ -1,18 +1,29 @@
-const express = require('express');
-const cors = require('cors');
-const app = express();
+import express from 'express'
+import cors from 'cors'
+import bodyParser from 'body-parser'
+import mongoose from 'mongoose'
 
-app.use(cors());
+const app= express()
 
-const data = {users:["user1","user2","user3","user4","user5"]}
-app.get('/api',(request, response)=>{
-    console.log("server is running");
-    console.log(request);
-    response.status(234).send(data);
-})
+app.use(express.json())
+app.use(cors())
 
 const PORT = 5000;
 
+// for normal check
+app.get('/',(req, res)=>{
+    res.send({msg:"This not home"})
+})
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+   
+    console.log(`Server is running on port http://localhost:${PORT}`);
 });
+
+// mongodb co
+mongoose.connect('mongodb://localhost:27017/Innov8mate')
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB', error);
+  });
