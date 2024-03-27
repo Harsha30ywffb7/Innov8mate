@@ -11,6 +11,7 @@ import About from './Common/About.jsx';
 import Signup from './Common/Signup.jsx';
 import RegisterPage from './Common/RegisterPage.jsx';
 import Leadership from './Common/Leadership.jsx';
+import Profilepage from './Common/Profilepage.jsx';
 
 import IdeasMainPage from './components/Ideas/IdeasMainPage.jsx';
 import PostIdea from './components/Ideas/PostIdea.jsx';
@@ -123,6 +124,11 @@ const appRouter = createBrowserRouter([
       }
     ],
   },
+  {
+    path:'/profile',
+    element:<Profilepage/>,
+    errorElement:<Error/>
+  }
 
 ]);
 

@@ -30,7 +30,9 @@ const IdeaDescription = () => {
                     <p>Sustainable Nature</p>
                 </div>
                 <div className="w-10 h-10 rounded-full overflow-hidden">
+                    <Link to='/profile'>
                     <img src="https://source.unsplash.com/400x400/?man" alt="profile" />
+                    </Link>
                 </div>
             </div>
 

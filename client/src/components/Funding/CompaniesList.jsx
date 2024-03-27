@@ -13,9 +13,9 @@ const companydata = [
 //{ profile, title, founders, sector, location}
 const Company = () => {
     return (
-        <div className='rounded-lg mx-auto my-4 w-[32rem] border-2 border-slate-200 border-solid  flex gap-5 align-middle justify-between shadow-md'>
+        <div className='my-4 rounded-lg mx-auto w-[28rem] border-2 border-slate-200 border-solid flex justify-around  shadow-md'>
             <div>
-                <img className='flex align-middle ml-2 mt-8 w-16 rounded-full ' src={companydata.profile} alt="Company logo" />
+                <img className='flex  ml-2 mt-8 w-20 rounded-full ' src="https://source.unsplash.com/400x400/?company" alt="Company logo" />
             </div>
             <div className='mr-16 p-5'>
                 <p className='text-md font-semibold'>Healthify Inc</p>
