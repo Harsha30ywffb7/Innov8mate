@@ -23,11 +23,11 @@ import IdeaHeader from './Header';
 */
 
 
-const IdeasMainpage=()=>{
-    return(
+const IdeasMainpage = () => {
+    return (
         <div className="IdeasMainpage">
-            <IdeaHeader/>
-            <CardsContainer/>
+            <IdeaHeader />
+            <CardsContainer />
             <div></div>
         </div>
     )
