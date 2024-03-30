@@ -13,3 +13,4 @@
 3. Addon's definetly needed are(needs to implement )
    - user needs to update thier own information only, not others.
    - already existing username problem , user need to try for another name.
+   - ownerId, userId , ideasId and email of user

@@ -23,8 +23,8 @@ const signup = async (req, res) => {
         });
 
         // Save the user to the database
-        await newUser.save();
-        res.status(201).json({ message: 'User signed up successfully', user: { email, username } });
+        const createdUser = await newUser.save();
+        res.status(200).json({ message: 'User signed up successfully', user: { email:email, username:username ,id:createdUser.id} });
     } catch (error) {
         console.error('Error signing up user:', error);
         res.status(500).json({ error: 'Internal server error' });

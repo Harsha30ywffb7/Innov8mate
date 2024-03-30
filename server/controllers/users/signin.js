@@ -18,7 +18,7 @@ const signin = async (req, res) => {
 
         // Here, you would typically generate a token or session
         // For this example, we'll just return a success message
-        res.status(200).json({ message: 'User signed in successfully', user: { email: user.email, username: user.username } });
+        res.status(200).json({ message: 'User signed in successfully', user: { email: user.email, username: user.username,id:user.id } });
     } catch (error) {
         console.error('Error signing in user:', error);
         res.status(500).json({ error: 'Internal server error' });

@@ -6,7 +6,7 @@ const registerUser = async (req, res) => {
         const { email, about, firstName, lastName, country, street, city, state, pincode, education, interests, profileImage, phoneNumber, hackathonList, projectList, companyList, ideaList, friendList, jobList } = req.body;
 
         // Find the existing user by email
-        const user = await User.findOne("john.smith@example.com");
+        const user = await User.findOne({email});
         if (!user) {
             return res.status(404).send({ error: 'User not found' });
         }
