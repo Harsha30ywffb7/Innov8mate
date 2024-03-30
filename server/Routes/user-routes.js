@@ -1,8 +1,11 @@
-import express from 'express'
+import express from 'express';
+import signup from '../controllers/users/signup.js';
+import signin from '../controllers/users/signin.js';
 
-const router = express.Router()
+const router = express.Router();
 
-router.post('/signup',(req, res)=>{
-    res.send({msg:"user should send his login here"})
-})
+router.post('/signup', signup);
 
+router.post('/signin', signin);
+
+export default router;

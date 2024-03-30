@@ -57,6 +57,7 @@ const userSchema = mongoose.Schema({
   }]
 });
 
+
 // Create User model
 const User = mongoose.model('User', userSchema);
 

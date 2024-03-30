@@ -3,6 +3,10 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 
+import UserRouter from './Routes/user-routes.js'
+
+
+
 const app= express()
 
 app.use(express.json())
@@ -10,6 +14,7 @@ app.use(cors())
 
 const PORT = 5000;
 
+app.use('/user',UserRouter)
 // for normal check
 app.get('/',(req, res)=>{
     res.send({msg:"This not home"})

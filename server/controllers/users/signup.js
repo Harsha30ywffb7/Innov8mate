@@ -1,29 +1,34 @@
-import express from 'express'
-import User from '../../models/user-schema.js'
+import User from '../../models/user-schema.js';
+import bcrypt from 'bcrypt';
 
-const router = express.Router()
+const signup = async (req, res) => {
+    try {
+        const { email, username, password } = req.body;
 
-router.post('./signup',async(req,res)=>{
-    try{
-        const {email, password} = req.body;
-
-        // Check if user with the provided email already exists
-        const existingUser = await User.findOne({email})
-        if(existingUser){
-            res.status(400).send({error:"'User with this email already exists'"})
+        // Check if user with the provided email or username already exists
+        const existingUser = await User.findOne({ $or: [{ email }, { username }] });
+        if (existingUser) {
+            return res.status(400).send({ error: 'User with this email or username already exists' });
         }
 
-        //create new user
-        const newUser = new User({email, password});
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Create new user with hashed password
+        const newUser = new User({
+            email,
+            username,
+            password: hashedPassword,
+            // Initialize other fields as necessary, or leave them to be added later
+        });
 
         // Save the user to the database
         await newUser.save();
-        res.status(201).json({ message: 'User signed up successfully', user: newUser });
-    }
-    catch (error) {
+        res.status(201).json({ message: 'User signed up successfully', user: { email, username } });
+    } catch (error) {
         console.error('Error signing up user:', error);
         res.status(500).json({ error: 'Internal server error' });
-      }
-    })
+    }
+};
 
-export default router;
+export default signup;
