@@ -6,7 +6,6 @@ import mongoose from 'mongoose'
 import UserRouter from './Routes/user-routes.js'
 
 
-
 const app= express()
 
 app.use(express.json())

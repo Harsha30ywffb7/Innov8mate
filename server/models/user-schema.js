@@ -13,9 +13,32 @@ const userSchema = mongoose.Schema({
     required: true,
     unique: true
   },
+  about: {
+    type: String,
+  },
+  firstName:{
+    type: String,
+  },
+  lastName:{
+    type: String,
+  },
   password: {
     type: String,
-    required: true
+  },
+  country: {
+    type: String,
+  },
+  street: {
+    type: String,
+  },
+  city: {
+    type: String,
+  },
+  state: {
+    type: String,
+  },
+  pincode: {
+    type: String,
   },
   education: [{
     type: String // Assuming Hackathons are stored as strings
@@ -25,7 +48,6 @@ const userSchema = mongoose.Schema({
   }],
   profileImage: String,
   phoneNumber: String,
-  location: String,
   // Define relations
   hackathonList: [{
     type: mongoose.Schema.Types.ObjectId,
