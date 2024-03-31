@@ -69,6 +69,8 @@ const Signup = () => {
         localStorage.setItem("email",response.data.user.email);
         localStorage.setItem("Userid",response.data.user.id);
         localStorage.setItem("Username",response.data.user.username);
+
+        navigate('/');
       console.log(response.data.user.email);
       }
      // console.log(response.data);
