@@ -20,6 +20,11 @@ import { Link } from 'react-router-dom';
  */
 import { BiArrowBack } from 'react-icons/bi';
 const IdeaDescription = () => {
+
+    const handleSupportIdea =() => {
+        
+    }
+
     return (
         <div className="bg-white-200 my-10">
             <div className="flex justify-between mx-32">
@@ -94,7 +99,8 @@ const IdeaDescription = () => {
                 </div>
 
                 <div className="flex justify-center">
-                    <button className=" px-2 py-2  rounded bg-black text-white">Support Idea</button>
+                    <button onClick={handleSupportIdea}
+                    className=" px-2 py-2  rounded bg-black text-white">Support Idea</button>
                 </div>
             </div>
 
