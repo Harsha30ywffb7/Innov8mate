@@ -40,9 +40,9 @@ const userSchema = mongoose.Schema({
   pincode: {
     type: String,
   },
-  education: [{
+  education: {
     type: String // Assuming Hackathons are stored as strings
-  }],
+  },
   interests: [{
     type: String
   }],

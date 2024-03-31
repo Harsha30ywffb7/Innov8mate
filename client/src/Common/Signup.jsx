@@ -25,7 +25,10 @@ const Signup = () => {
 
       console.log(response.data);
       if (response.status === 200) {
-        setShowSuccess(true);
+       
+          localStorage.setItem("email",response.data.user.email);
+          localStorage.setItem("Userid",response.data.user.id);
+          localStorage.setItem("Username",response.data.user.username);
         
         setTimeout(() => {
           navigate('/register');
