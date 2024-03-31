@@ -66,9 +66,13 @@ const userSchema = mongoose.Schema({
     }
   }],
   ideaList: [{
+    owner:Boolean,
+    supporter:Boolean,
+    idea: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Idea'
-  }],
+  }
+}],
   friendList: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'

@@ -4,6 +4,7 @@ import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 
 import UserRouter from './Routes/user-routes.js'
+import ideasRoute from './Routes/ideas-routes.js'
 
 
 const app= express()
@@ -28,6 +29,7 @@ app.use(cors())
 const PORT = 5000;
 
 app.use('/user',UserRouter)
+app.use('/ideas',ideasRoute)
 // for normal check
 app.get('/',(req, res)=>{
     res.send({msg:"This not home"})
