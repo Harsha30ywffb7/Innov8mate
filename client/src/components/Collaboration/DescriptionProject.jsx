@@ -30,7 +30,7 @@ const DescriptionProject = () => {
     // }
 
     return (
-        <div className="max-w-xl mx-auto mt-8">
+        <div className="w-8/12 mx-auto mt-8">
             <h1 className="text-3xl font-bold mb-4">{projects[0].title}</h1>
             <p className="text-gray-700">{projects[0].description}</p>
             <div className="mt-4">
