@@ -3,26 +3,80 @@ import React from 'react';
 import { useState } from 'react';
 import { PhotoIcon } from '@heroicons/react/24/solid';
 import { Switch } from '@headlessui/react'
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 const FounderForm=()=> {
-  const [companyName, setCompanyName] = useState('');
-  const [founderName, setFounderName] = useState('');
-  const [founderLinks, setFounderLinks] = useState('');
-  const [companyDescription, setCompanyDescription] = useState('');
-  const [sector, setSector] = useState('');
-  const [location, setLocation] = useState('');
-  const [socialMediaLinks, setSocialMediaLinks] = useState('');
-  const [otherLinks, setOtherLinks] = useState('');
-  const [fundsNeeded, setFundsNeeded] =useState('');
-  const [sharesDilute, setSharesDilute] = useState('');
-  const [agreed, setAgreed] = useState(false)
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  const[agreed, setAgreed] = useState(false);
+  const navigate = useNavigate()
+
+  const [companyData, setCompanyData] = useState({
+    companyName: '',
+    founderName: '',
+    founderProfileLink: '',
+    founderDescription: '',
+    description: '',
+    sector: '',
+    location: '',
+    website: '',
+    socialMediaLink: '',
+    sharesDiluted: '',
+    investmentNeeded:''
+  });
+
+
+ const handleAgreed = ()=>{
+  setAgreed(!agreed);
+ }
+
+   const handleSubmit=async(e)=> {
+    e.preventDefault();
     // Handle form submission here
+    try {
+      // Assuming you're storing the user information in localStorage under "user"
+      const user = localStorage.getItem('Username');
+      console.log(user);
+      
+      const company = {
+        companyName: companyData.companyName,
+        founder: {
+          name: companyData.founderName,
+          profileLink: companyData.founderProfileLink,
+          description: companyData.founderDescription,
+        },
+        description: companyData.description,
+        sector: companyData.sector,
+        location: companyData.location,
+        companyLinks: {
+          website: companyData.website,
+          socialMediaLink:companyData.socialMediaLink,
+        },
+        sharesDiluted: companyData.sharesDiluted,
+        investmentNeeded: companyData.investmentNeeded,
+        userUniqueId: user,
+      };
+
+      console.log("before axios in frontend")
+
+      const response = await axios.post('http://localhost:5000/funding/addcompany',company);
+
+      console.log("After axios in frontend")
+
+      
+
+      console.log('Company Added:', response.data);
+      navigate('/funding')
+      // Handle response or redirect user as necessary
+    } catch (error) {
+      console.error('Error adding company:', error.response ? error.response.data : error.message);
+      // Handle errors, maybe set an error message in your component's state
+    }
   }
 
   return (
@@ -46,8 +100,8 @@ const FounderForm=()=> {
             name="companyName"
             className="mt-3  p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm"
             placeholder="company Name"
-            value={companyName}
-            onChange={(e) => setCompanyName(e.target.value)}
+            value={companyData.companyName}
+            onChange={(e) => setCompanyData({...companyData,companyName:e.target.value})}
             required
           />
         </div>
@@ -60,8 +114,8 @@ const FounderForm=()=> {
             name="founderName"
             className="mt-3 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm"
             placeholder="Founder name"
-            value={founderName}
-            onChange={(e) => setFounderName(e.target.value)}
+            value={companyData.founderName}
+            onChange={(e) => setCompanyData({...companyData,founderName:e.target.value})}
             required
           />
         </div>
@@ -74,8 +128,22 @@ const FounderForm=()=> {
             name="founderLinks"
             className="mt-3 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm"
             placeholder="LinkedIn, personal website, etc."
-            value={founderLinks}
-            onChange={(e) => setFounderLinks(e.target.value)}
+            value={companyData.founderProfileLink}
+            onChange={(e) => setCompanyData({...companyData,founderProfileLink:e.target.value})}
+            required
+          />
+        </div>
+
+        <div>
+          <label htmlFor="founderDescription" className="block text-sm font-medium text-gray-900">Founder Description</label>
+          <input
+            type="text"
+            id="founderDescription"
+            name="founderDescription"
+            className="mt-3 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm"
+            placeholder="LinkedIn, personal website, etc."
+            value={companyData.founderDescription}
+            onChange={(e) => setCompanyData({...companyData,founderDescription:e.target.value})}
             required
           />
         </div>
@@ -88,8 +156,8 @@ const FounderForm=()=> {
             rows="3"
             className="mt-3 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm"
             placeholder="Briefly describe your company..."
-            value={companyDescription}
-            onChange={(e) => setCompanyDescription(e.target.value)}
+            value={companyData.description}
+            onChange={(e) => setCompanyData({...companyData,description:e.target.value})}
             required
           ></textarea>
         </div>
@@ -122,8 +190,8 @@ const FounderForm=()=> {
             id="sector"
             name="sector"
             className="mt-3 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm"
-            value={sector}
-            onChange={(e) => setSector(e.target.value)}
+            value={companyData.sector}
+            onChange={(e) => setCompanyData({...companyData,sector:e.target.value})}
             
           >
             <option value="">Select Sector</option>
@@ -143,50 +211,50 @@ const FounderForm=()=> {
             name="location"
             className="mt-3 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm"
             placeholder="City, Country"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
+            value={companyData.location}
+            onChange={(e) => setCompanyData({...companyData,location:e.target.value})}
             required
           />
         </div>
 
         <div>
-          <label htmlFor="socialMediaLinks" className="block text-sm font-medium text-gray-900">Social Media Links</label>
+          <label htmlFor="website" className="block text-sm font-medium text-gray-900">Company website</label>
           <input
-            type="text"
-            id="socialMediaLinks"
-            name="socialMediaLinks"
+            type="url"
+            id="website"
+            name="website"
             className="mt-3 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm"
-            placeholder="LinkedIn, Twitter, Facebook, etc."
-            value={socialMediaLinks}
-            onChange={(e) => setSocialMediaLinks(e.target.value)}
+            placeholder="Website, GitHub repository, etc."
+            value={companyData.website}
+            onChange={(e) => setCompanyData({...companyData,website:e.target.value})}
             required
           />
         </div>
 
         <div >
-          <label htmlFor="otherLinks" className="block text-sm font-medium text-gray-900">Other Links</label>
+          <label htmlFor="socialMediaLink" className="block text-sm font-medium text-gray-900">social Media Links</label>
           <input
-            type="text"
-            id="otherLinks"
-            name="otherLinks"
+            type="url"
+            id="socialMediaLink"
+            name="socialMediaLink"
             className="mt-3 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm"
-            placeholder="Website, GitHub repository, etc."
-            value={otherLinks}
-            onChange={(e) => setOtherLinks(e.target.value)}
+            placeholder="LinkedIn, Twitter, Facebook, etc."
+            value={companyData.socialMediaLink}
+            onChange={(e) => setCompanyData({...companyData,socialMediaLink:e.target.value})}
           />
         </div>
 
         <div className='flex gap-10 '>
         <div>
-          <label htmlFor="sharesDilute" className="block text-sm font-medium text-gray-900">Investment Needed</label>
+          <label htmlFor="investmentNeeded" className="block text-sm font-medium text-gray-900">Investment Needed</label>
           <input
             type="text"
-            id="sharesDilute"
-            name="sharesDilute"
+            id="investmentNeeded"
+            name="investmentNeeded"
             className="mt-3 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm"
             placeholder= "₹. In rupees"
-            value={fundsNeeded}
-            onChange={(e) => setFundsNeeded(e.target.value)}
+            value={companyData.investmentNeeded}
+            onChange={(e) => setCompanyData({...companyData,investmentNeeded:e.target.value})}
             required
           />
         </div>
@@ -199,8 +267,8 @@ const FounderForm=()=> {
             name="sharesDilute"
             className="mt-3 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm"
             placeholder="Percentage of shares to dilute"
-            value={sharesDilute}
-            onChange={(e) => setSharesDilute(e.target.value)}
+            value={companyData.sharesDiluted}
+            onChange={(e) => setCompanyData({...companyData,sharesDiluted:e.target.value})}
             required
           />
         </div>
@@ -212,7 +280,7 @@ const FounderForm=()=> {
             <div className="flex h-6 items-center">
               <Switch
                 checked={agreed}
-                onChange={setAgreed}
+                onChange={handleAgreed}
                 className={classNames(
                   agreed ? 'bg-indigo-600' : 'bg-gray-200',
                   'flex w-8 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
@@ -230,9 +298,9 @@ const FounderForm=()=> {
             </div>
             <Switch.Label className="text-sm leading-6 text-gray-600">
               By selecting this, you agree to our{' '}
-              <a href="#" className="font-semibold text-indigo-600">
+              <Link to="/about" className="font-semibold text-indigo-600">
                 privacy&nbsp;policy
-              </a>
+              </Link>
               .
             </Switch.Label>
           </Switch.Group>

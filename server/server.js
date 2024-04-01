@@ -5,6 +5,7 @@ import mongoose from 'mongoose'
 
 import UserRouter from './Routes/user-routes.js'
 import ideasRoute from './Routes/ideas-routes.js'
+import fundRouter from './Routes/funding-routes.js'
 
 
 const app= express()
@@ -30,6 +31,7 @@ const PORT = 5000;
 
 app.use('/user',UserRouter)
 app.use('/ideas',ideasRoute)
+app.use('/funding',fundRouter)
 // for normal check
 app.get('/',(req, res)=>{
     res.send({msg:"This not home"})
