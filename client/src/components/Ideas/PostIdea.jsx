@@ -1,8 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import { Navigate, useNavigate } from 'react-router-dom';
+import SuccessAnimation from '../../Common/successMessage';
+SuccessAnimation
 
 const IdeaPostingPage = () => {
+
+    const navigate = useNavigate();
     const[postData, setPostData] = useState(
         {
             title:'',
@@ -31,6 +36,10 @@ const IdeaPostingPage = () => {
            
             console.log(response.data); // Log the response data
             // Add logic to update user's idea list with the new idea ID
+
+            <SuccessAnimation message={response.data.message}/>
+
+            navigate('/pitchideas')
 
         } catch (error) {
             console.error('Error posting idea:', error);
