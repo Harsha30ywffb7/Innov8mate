@@ -56,10 +56,6 @@ const appRouter = createBrowserRouter([
         element:<IdeasMainPage/>,
       },
       {
-        path:'/pitchideas/idea/:id',
-        element:<IdeaDescription/>
-      },
-      {
         path:'/contact',
         element:<Contact/>
       },
@@ -82,10 +78,6 @@ const appRouter = createBrowserRouter([
       {
         path:'/jobs',
         element:<JobsPage/>
-      },
-      {
-        path:'/jobs/job/:id',
-        element:<JobDescription/>
       },
       {
         path:'/collaboration',
@@ -125,7 +117,17 @@ const appRouter = createBrowserRouter([
     path:'/profile',
     element:<Profilepage/>,
     errorElement:<Error/>
-  }
+  },
+  {
+    path:'/pitchideas/idea/:id',
+    element:<IdeaDescription/>,
+    errorElement:<Error/>
+  },
+  {
+    path:'/jobs/job/:id',
+    element:<JobDescription/>,
+    errorElement:<Error/>
+  },
 
 ]);
 

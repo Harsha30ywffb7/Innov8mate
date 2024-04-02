@@ -9,7 +9,6 @@ const Signup = () => {
   });
 
   const [errorMessage, setErrorMessage] = useState('');
-  const [showSuccess, setShowSuccess] = useState(false);
 
   const navigate = useNavigate();
 
@@ -29,6 +28,8 @@ const Signup = () => {
           localStorage.setItem("email",response.data.user.email);
           localStorage.setItem("Userid",response.data.user.id);
           localStorage.setItem("Username",response.data.user.username);
+
+          setShowSuccess(!showSuccess);
         
         setTimeout(() => {
           navigate('/register');
@@ -48,11 +49,6 @@ const Signup = () => {
       }
     }
   };
-
-  // const successAnimation = useSpring({
-  //   opacity: showSuccess ? 1 : 0,
-  //   marginTop: showSuccess ? 0 : -50
-  // });
 
 
   const handleSignin = async (e) => {
@@ -188,9 +184,9 @@ const Signup = () => {
 
           <p className="mt-10 text-center text-sm text-gray-500">
             {isSignIn ? 'New to Innov8mate?' : 'Already existed?'}{' '}
-            <p onClick={() => { setisSignIn(!isSignIn) }} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 cursor-pointer">
+            <span onClick={() => { setisSignIn(!isSignIn) }} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 cursor-pointer">
               {isSignIn ? 'Signup Now' : 'SignIn Now'}
-            </p>
+            </span>
           </p>
         </div>
         {/* <animated.div style={successAnimation}>

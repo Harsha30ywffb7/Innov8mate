@@ -48,6 +48,9 @@ const Description = ({ project }) => {
             <h2 className="text-2xl font-semibold mb-4">Project Description</h2>
             <p className="text-lg font-light text-gray-700">{project.description}</p>
           </div>
+          <div className='flex justify-center mt-7'>
+            <button className='rounded-md bg-orange-500 px-2 py-2 text-white'>collaborate</button>
+          </div>
         </div>
       </div>
     );

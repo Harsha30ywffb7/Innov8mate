@@ -6,7 +6,7 @@ const Opportunities = ({Image, heading, tagline, link, btnName}) => {
     <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4">
       <div className="flex flex-wrap  max-w-sm bg-white rounded-lg shadow-md">
         <img src={Image} alt="feature" className="w-full h-auto" />
-        <div className="p-4">
+        <div className="p-4 items-center">
           <p className="text-lg font-bold text-gray-800">{heading}</p>
           <p className="text-slate-600 text-center text-sm font-semibold ">{tagline}</p>
           <Link to={link}>
@@ -46,7 +46,7 @@ const features = [
   {
     Image: 'https://source.unsplash.com/400x400/?Job Hiring',
     heading: 'Hiring',
-    tagline: 'Find the Job matches your skills',
+    tagline: 'Find the Job matches your skills get hired',
     btnName: 'Explore',
     link:'/jobs'
   },
