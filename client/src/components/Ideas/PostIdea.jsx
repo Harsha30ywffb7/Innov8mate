@@ -7,6 +7,7 @@ SuccessAnimation
 
 const IdeaPostingPage = () => {
 
+
     const navigate = useNavigate();
     const[postData, setPostData] = useState(
         {

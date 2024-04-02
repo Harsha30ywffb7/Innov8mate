@@ -18,14 +18,13 @@ import PostIdea from './components/Ideas/PostIdea.jsx';
 import IdeaDescription from './components/Ideas/IdeaDescription.jsx';
 
 
-import HackathonPage from './components/Hackathons/HackathonPage.jsx';
-
 
 import DashBoard from './components/Funding/DashBoard.jsx';
 import FounderForm from './components/Funding/FounderForm.jsx';
 import InvestmentPage from './components/Funding/InvestmentPage.jsx';
 
 
+import Postproject from './components/Collaboration/Postproject.jsx';
 import DashBoardProjects from './components/Collaboration/DashBoardProjects.jsx';
 import DescriptionProject from './components/Collaboration/DescriptionProject.jsx';
 
@@ -61,10 +60,6 @@ const appRouter = createBrowserRouter([
         element:<IdeaDescription/>
       },
       {
-        path:'/hackathons',
-        element:<HackathonPage/>
-      },
-      {
         path:'/contact',
         element:<Contact/>
       },
@@ -95,6 +90,10 @@ const appRouter = createBrowserRouter([
       {
         path:'/collaboration',
         element:<DashBoardProjects/>
+      },
+      {
+        path:'/collaboration/postidea',
+        element:<Postproject/>
       },
       {
         path:'/about',

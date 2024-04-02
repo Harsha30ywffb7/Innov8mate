@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CardsContainer from "./card";
 import IdeaHeader from './Header';
+import axios from 'axios';
 
 
 
@@ -24,11 +25,24 @@ import IdeaHeader from './Header';
 
 
 const IdeasMainpage = () => {
+    const [allIdeasData,setAllIdeasData] = useState([]);
+    useEffect(()=>{
+        callAllIdeasApi()
+    },[]);
+
+    const callAllIdeasApi =async()=>{
+    try {
+        const response = await axios.get('http://localhost:5000/ideas/allIdeas');
+        setAllIdeasData(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
     return (
         <div className="IdeasMainpage">
             <IdeaHeader />
-            <CardsContainer />
-            <div></div>
+            <CardsContainer allIdeasData={allIdeasData}/>
         </div>
     )
 }

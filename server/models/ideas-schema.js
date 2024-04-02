@@ -18,6 +18,10 @@ const IdeaSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    // username: {
+    //     type: String,
+    //     required: true
+    // },
     uniqueness: {
         type: String,
         required: true

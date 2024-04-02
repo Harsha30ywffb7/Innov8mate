@@ -2,33 +2,35 @@ import React, { useState } from "react";
 import { BiHeart, BiChat, BiShareAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
-const data = [
-  {
-    username: "Harsha",
-    profile: "https://source.unsplash.com/400x400/?man",
-    title: "Sustainable nature",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores corrupti animi veniam, ullam ducimus soluta quam. Natus, earum sed!",
-  },
-  {
-    username: "Vardhan",
-    profile: "https://source.unsplash.com/400x400/?woman",
-    title: "Sustainable nature",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores corrupti animi veniam, ullam ducimus soluta quam. Natus, earum sed!",
-  },
-  {
-    username: "Vardhan",
-    profile: "https://source.unsplash.com/400x400/?woman",
-    title: "Sustainable nature",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores corrupti animi veniam, ullam ducimus soluta quam. Natus, earum sed!",
-  }
-  // Other data objects
-];
+// const data = [
+//   {
+//     username: "Harsha",
+//     profile: "https://source.unsplash.com/400x400/?man",
+//     title: "Sustainable nature",
+//     description:
+//       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores corrupti animi veniam, ullam ducimus soluta quam. Natus, earum sed!",
+//   },
+//   {
+//     username: "Vardhan",
+//     profile: "https://source.unsplash.com/400x400/?woman",
+//     title: "Sustainable nature",
+//     description:
+//       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores corrupti animi veniam, ullam ducimus soluta quam. Natus, earum sed!",
+//   },
+//   {
+//     username: "Vardhan",
+//     profile: "https://source.unsplash.com/400x400/?woman",
+//     title: "Sustainable nature",
+//     description:
+//       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores corrupti animi veniam, ullam ducimus soluta quam. Natus, earum sed!",
+//   }
+//   // Other data objects
+// ];
 
-const Card = ({ userData }) => {
-  const [likes, setLikes] = useState(0);
+const Card = (props) => {
+
+  console.log(props.allIdeasData.userUniqueId);
+  const [likes, setLikes] = useState(props.allIdeasData.likes);
   const [liked, setLiked] = useState(false);
   const [comment, setComment] = useState(0);
 
@@ -45,19 +47,17 @@ const Card = ({ userData }) => {
     <div className="cursor-pointer w-4/12 border border-gray-300 rounded-md m-10 shadow-md">
       <div className="flex items-center gap-10 p-2">
         <div className="w-30 h-30 ml-5">
-          <img src={userData.profile} alt="profile" className="rounded-full h-10 w-10" />
+          <img src={props.allIdeasData.profile} alt="profile" className="rounded-full h-10 w-10" />
         </div>
         <div className="ml-3">
-          <p className="text-slate-500 text-md text-sm ">{'@'}{userData.username}</p>
-
-          <p className="text-md font-semibold">{userData.title}</p>
-
+          <p className="text-slate-500 text-md text-sm ">{'@'}{props.allIdeasData.userUniqueId}</p>
+          <p className="text-md font-semibold">{props.allIdeasData.title}</p>
         </div>
       </div>
 
       <div className="p-5">
         <div className="text-gray-600">
-          <p className="text-sm px-4 overflow-hidden clamp-2">{userData.description}</p>
+          <p className="text-sm px-4 overflow-hidden clamp-2">{props.allIdeasData.description}</p>
         </div>
         <div className="flex justify-around mt-10">
           <button className={`bg-white border-none`} onClick={handleLike}>
@@ -85,11 +85,12 @@ const Card = ({ userData }) => {
   );
 };
 
-const CardsContainer = () => {
+const CardsContainer = (props) => {
+  
   return (
     <div className="flex justify-center flex-wrap">
-      {data.map((item, index) => (
-        <Card key={index} userData={item} />
+      {props.allIdeasData.map((item, index) => (
+        <Card key={index} props={item} allIdeasData={item} />
       ))}
     </div>
   );

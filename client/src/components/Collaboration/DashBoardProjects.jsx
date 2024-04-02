@@ -1,37 +1,38 @@
-// ProjectOwnerProjectsPage.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-const ProjectCard = ({ project }) => (
-    <div className="max-w-sm rounded  overflow-hidden shadow-lg bg-white">
-        <div className="px-6 py-4">
-            <div className="font-bold text-xl mb-2">{project.title}</div>
-            <p className="text-gray-700 text-base">{project.description}</p>
-            <p className="text-gray-600 mt-2">Technologies: {project.technologies.join(', ')}</p>
-            <p className="text-gray-600">Members Required: {project.membersRequired}</p>
-        </div>
-        <div className="px-6 py-4">
-            <Link to={`/collaboration/projects/:id`} className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">View Details</Link>
-        </div>
-    </div>
-);
+import projects from './projects';
+import CollabHeader from './CollabHeader';
+const ProjectListPage = ({ projects }) => {
+    return (
+        <>
+            <CollabHeader/>
+            <div className="container mx-auto px-4 py-8">
+                <h1 className="text-3xl font-bold mb-8">Projects</h1>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {projects.map(project => (
+                        <div key={project.id} className="bg-white shadow-md rounded-lg overflow-hidden">
+                            <div className="p-4">
+                                <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
+                                <p className="text-gray-600 mb-4 line-clamp-5">{project.description}</p>
+                                <div className="flex justify-between items-center">
+                                    <Link to={`/collaboration/projects/${project.id}`} className="text-blue-500 hover:text-blue-600 font-semibold">
+                                        View Details
+                                    </Link>
+                                    <span className="text-sm text-gray-500">Members Needed: {project.membersNeeded}</span>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </>
+    );
+};
 
 const DashBoardProjects = () => {
-    // Dummy project data
-    const projects = [
-        { id: 1, title: "Project 1", description: "Description of Project 1", technologies: ["React", "Node.js"], membersRequired: 3 },
-        { id: 2, title: "Project 2", description: "Description of Project 2", technologies: ["Angular", "Express.js"], membersRequired: 2 },
-    ];
-
-    return (
-        <div className="flex flex-wrap justify-center">
-            {projects.map(project => (
-                <div key={project.id} className="m-4">
-                    <ProjectCard project={project} />
-                </div>
-            ))}
-        </div>
-    );
+    return (<ProjectListPage projects={projects} />)
 }
 
 export default DashBoardProjects;
+
+
