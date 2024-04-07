@@ -21,8 +21,8 @@ const Card = (props) => {
 
   return (
     <div className="cursor-pointer w-4/12 border border-gray-300 rounded-md m-10 shadow-md">
-      <div className="flex items-center gap-10 p-2">
-        <div className="w-30 h-30 ml-5">
+      <div className="flex gap-5 p-2">
+        <div className="w-15 h-20 ml-2">
           <img src='https://source.unsplash.com/400x400/?random' alt="profile" className="rounded-full h-10 w-10" />
         </div>
         <div className="ml-3">
