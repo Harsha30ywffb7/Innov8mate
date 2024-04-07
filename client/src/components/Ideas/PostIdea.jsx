@@ -26,19 +26,16 @@ const IdeaPostingPage = () => {
     );
 
     const userId = localStorage.getItem('Username')
-    console.log(userId)
+    //console.log(userId)
     const [prototypeLinks,setprototypeLinks] = useState('');
 
     const handlePostIdea = async (e) => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:5000/ideas/postidea', {userUniqueId:userId,...postData, prototypeLinks});
-
            
             console.log(response.data); // Log the response data
             // Add logic to update user's idea list with the new idea ID
-
-            <SuccessAnimation message={response.data.message}/>
 
             navigate('/pitchideas')
 
