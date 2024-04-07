@@ -1,5 +1,6 @@
 import React from 'react';
-import {createBrowserRouter, RouterProvider,Outlet} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import useOneline from './Utils/hooks/useOnline.js';
 
 import Navbar from './components/Home/Navbar.jsx';
 import Footer from './components/Home/Footer.jsx';
@@ -33,106 +34,114 @@ import JobDescription from './components/Jobs/JobDescription.jsx';
 
 
 const AppLayout = () => {
+
+  const isOnline = useOneline();
   return (
     <div>
-        <Navbar/>
-        <Outlet/>
-        <Footer/>
+      {isOnline ?
+        (<>
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </>) :
+        (<div className='mx-auto'>
+          <p className='mx-10 text-center  my-20'>🔴 Please check your internet connection you are offline</p>
+        </div>)}
     </div>
   );
 };
 
 const appRouter = createBrowserRouter([
   {
-    element:<AppLayout/>,
-    errorElement:<Error/>,
-    children:[
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
       {
-        path:"/",
-        element:<Home/>
+        path: "/",
+        element: <Home />
       },
       {
-        path:"/pitchideas",
-        element:<IdeasMainPage/>,
+        path: "/pitchideas",
+        element: <IdeasMainPage />,
       },
       {
-        path:'/contact',
-        element:<Contact/>
+        path: '/contact',
+        element: <Contact />
       },
       {
-        path:'/funding',
-        element:<DashBoard/>
+        path: '/funding',
+        element: <DashBoard />
       },
       {
-        path:'/signin',
-        element:<Signup/>
+        path: '/signin',
+        element: <Signup />
       },
       {
-        path:'/register',
-        element:<RegisterPage/>
+        path: '/register',
+        element: <RegisterPage />
       },
       {
-        path:'/funding/register',
-        element:<FounderForm/>
+        path: '/funding/register',
+        element: <FounderForm />
       },
       {
-        path:'/jobs',
-        element:<JobsPage/>
+        path: '/jobs',
+        element: <JobsPage />
       },
       {
-        path:'/collaboration',
-        element:<DashBoardProjects/>
+        path: '/collaboration',
+        element: <DashBoardProjects />
       },
       {
-        path:'/collaboration/postidea',
-        element:<Postproject/>
+        path: '/collaboration/postidea',
+        element: <Postproject />
       },
       {
-        path:'/about',
-        element:<About/>
+        path: '/about',
+        element: <About />
       },
       {
-        path:'/leadership',
-        element:<Leadership/>
+        path: '/leadership',
+        element: <Leadership />
       },
       {
-        path:'/ideas/postidea',
-        element:<PostIdea/>
+        path: '/ideas/postidea',
+        element: <PostIdea />
       },
       {
-        path:'/funding/company',
-        element:<InvestmentPage/>
+        path: '/funding/company',
+        element: <InvestmentPage />
       },
       {
-        path:'/collaboration/projects/:id',
-        element:<DescriptionProject/>
+        path: '/collaboration/projects/:id',
+        element: <DescriptionProject />
       },
       {
-        path:'/contact',
-        element:<Contact/>
+        path: '/contact',
+        element: <Contact />
       }
     ],
   },
   {
-    path:'/profile',
-    element:<Profilepage/>,
-    errorElement:<Error/>
+    path: '/profile',
+    element: <Profilepage />,
+    errorElement: <Error />
   },
   {
-    path:'/pitchideas/idea/:id',
-    element:<IdeaDescription/>,
-    errorElement:<Error/>
+    path: '/pitchideas/idea/:id',
+    element: <IdeaDescription />,
+    errorElement: <Error />
   },
   {
-    path:'/jobs/job/:id',
-    element:<JobDescription/>,
-    errorElement:<Error/>
+    path: '/jobs/job/:id',
+    element: <JobDescription />,
+    errorElement: <Error />
   },
 
 ]);
 
-const App=()=>{
-  return(<RouterProvider router={appRouter}/>)
+const App = () => {
+  return (<RouterProvider router={appRouter} />)
 }
 
 export default App;
