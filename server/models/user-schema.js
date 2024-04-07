@@ -54,9 +54,12 @@ const userSchema = mongoose.Schema({
     ref: 'Hackathon'
   }],
   projectList: [{
+    owner:Boolean,
+    collaborater:Boolean,
+    proeject: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Project'
-  }],
+  }}],
   companyList: [{
     invested: Boolean,
     founded: Boolean,
