@@ -7,6 +7,9 @@ import bg from '../../Assets/bg.avif';
 import { Link } from "react-router-dom";
 
 const Home = () => {
+
+
+
     return (
         <div className="text-center ">
             <header className="mt-0 ">
