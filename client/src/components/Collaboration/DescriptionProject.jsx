@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 const Description = ({ project }) => {
     return (
@@ -59,6 +60,8 @@ const Description = ({ project }) => {
   
 
 const DescriptionProject = () => {
+  const {id} = useParams();
+  
   const project = {
     "id": 4,
     "title": "Blockchain-Based Voting System",

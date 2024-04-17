@@ -8,8 +8,8 @@ const CollabHeader = () => {
       <div className="flex items-center searchInput">
         <div className="relative mr-1">
           <input type="text" placeholder="Search Ideas" className="py-1 px-4 w-48 rounded-md border border-gray-300 focus:outline-none focus:ring focus:border-orange-500" />
-          <div class="absolute inset-y-0 left-32 flex items-center pl-3">
-            <BiSearch class="h-6 w-6 text-gray-400" />
+          <div className="absolute inset-y-0 left-32 flex items-center pl-3">
+            <BiSearch className="h-6 w-6 text-gray-400" />
           </div>
         </div>
         <button className='text-white bg-orange-500 py-1 px-2 rounded-md'>Search</button>

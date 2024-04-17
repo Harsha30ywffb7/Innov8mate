@@ -7,6 +7,6 @@ const router = express.Router()
 
 router.get('/',projects);
 
-router.post('/',addProject);
+router.post('/addProject',addProject);
 
 export default router

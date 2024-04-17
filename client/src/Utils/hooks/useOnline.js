@@ -2,9 +2,7 @@ import { useEffect, useState } from "react"
 
 
 const useOneline =()=>{
-
     const [isOnline, setIsOnline] = useState(true);
-
     useEffect(()=>{
         const handleOnline=()=>{
             setIsOnline(true);

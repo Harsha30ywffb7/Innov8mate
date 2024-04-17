@@ -11,7 +11,7 @@ const collabSchema = new mongoose.Schema({
         required: true
     },
     postedAt:{
-        type:Date,
+        type:String,
         required:true
     },
     deadline:{
