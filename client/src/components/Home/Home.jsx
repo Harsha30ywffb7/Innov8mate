@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CompanyPartners from "./companies.jsx";
 import Reviews from "./Reviews.jsx";
 import Faqs from "./Faqs.jsx";
 import Features from "./Features.jsx";
 import bg from '../../Assets/bg.avif';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Home = () => {
 
+    const user = useSelector(state=>state.user.item);
+    const navigate = useNavigate()
+
+    useEffect(()=>{
+        if(user) navigate('/profile')
+        else navigate('/')
+    },[])
 
 
     return (

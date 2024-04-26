@@ -33,21 +33,27 @@ import JobsPage from './components/Jobs/JobsPage.jsx';
 import JobDescription from './components/Jobs/JobDescription.jsx';
 
 
+import { Provider } from 'react-redux'
+import appStore from './Utils/appStore.js';
+
 const AppLayout = () => {
 
   const isOnline = useOneline();
   return (
-    <div>
-      {isOnline ?
-        (<>
-          <Navbar />
-          <Outlet />
-          <Footer />
-        </>) :
-        (<div className='mx-auto'>
-          <p className='mx-10 text-center  my-20'>🔴 Please check your internet connection you are offline</p>
-        </div>)}
-    </div>
+
+   
+      <div>
+        {isOnline ?
+          (<>
+            <Navbar />
+            <Outlet />
+            <Footer />
+          </>) :
+          (<div className='mx-auto'>
+            <p className='mx-10 text-center  my-20'>🔴 Please check your internet connection you are offline</p>
+          </div>)}
+      </div>
+   
   );
 };
 
@@ -141,7 +147,12 @@ const appRouter = createBrowserRouter([
 ]);
 
 const App = () => {
-  return (<RouterProvider router={appRouter} />)
+  return (
+  
+  <Provider store={appStore}>
+     <RouterProvider router={appRouter} />
+  </Provider>
+ )
 }
 
 export default App;
