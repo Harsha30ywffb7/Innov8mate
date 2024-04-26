@@ -1,14 +1,20 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { removeUser } from "../../Utils/userSlice";
 import { Navigate } from "react-router-dom";
 
 const Navbar = () => {
     const [isLogin, setIsLogin] = useState(false);
+    const user = useSelector(state => state.user.item);
+    const dispacth = useDispatch();
 
     const handleLogout =()=>{
         localStorage.clear()
-        setIsLogin(!isLogin);
+        dispacth(removeUser())
+        setIsLogin(false)
+       
     }
 
     return (
@@ -51,21 +57,10 @@ const Navbar = () => {
                     <p className="text-md font-bold ">{localStorage.getItem('Username')}</p>
                         <div className="flex gap-3">
                             <Link to="/profile"> {/* Link to user profile page */}
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth={1.5}
-                                    stroke="currentColor"
+                                <img
                                     className="w-6 h-6 cursor-pointer"
-                                >
-                                    
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                                    />
-                                </svg>
+                                    src={user?.photoURL}
+                                />
                             </Link>
                             <Link to="/">
                                 <button
@@ -82,7 +77,7 @@ const Navbar = () => {
                     <div>
                         <Link to="/signin">
                             <button
-                                onClick={() => setIsLogin(!isLogin)}
+                                onClick={() =>{setIsLogin(true)}}
                                 className="bg-orange-500 hover:bg-orange-700 text-white py-1 px-2 rounded"
                             >
                                 Login
@@ -91,7 +86,6 @@ const Navbar = () => {
                     </div>
                 )}
             </div>
-
         </nav>
     );
 };
