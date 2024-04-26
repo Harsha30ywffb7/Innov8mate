@@ -25,6 +25,7 @@ const Postproject = () => {
     const formattedDate = `${day < 10 ? '0' : ''}${day}-${month < 10 ? '0' : ''}${month}-${year}`;
 
     const techStackArray = formData.techStack.split(',').map(tech => tech.trim());
+    console.log(techStackArray)
     const username = localStorage.getItem("Username");
 
     const handleChange = (e) => {
@@ -36,9 +37,6 @@ const Postproject = () => {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Send formData to backend
-       // console.log(username) 
-       // console.log(formData, username, formattedDate);
         const response = await axios.post("http://localhost:5000/collaboration/addProject", ({ ...formData, postedBy: username, userUniqueId: username, techStack: techStackArray, postedAt:formattedDate}));
 
         if(response.status == 200){
@@ -46,8 +44,6 @@ const Postproject = () => {
             navigate('/collaboration')
         }
         
-        //console.log(response)
-
     };
 
     return (
