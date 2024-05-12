@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { removeUser } from "../../Utils/userSlice";
 import { Navigate } from "react-router-dom";
 
 const Navbar = () => {
+    const navigate = useNavigate()
+    const [user, setUser] = useState(null);
     const [isLogin, setIsLogin] = useState(false);
-    const user = useSelector(state => state.user.item);
-    const dispacth = useDispatch();
+    const username = localStorage.getItem('Username');
+
+    useEffect(()=>{
+
+    },[setUser])
 
     const handleLogout =()=>{
         localStorage.clear()
-        dispacth(removeUser())
-        setIsLogin(false)
-       
+       // dispacth(removeUser())
+        //setIsLogin(false)
     }
+
 
     return (
         <nav className="bg-gray-100 flex justify-between items-center mb-0 sticky top-0 z-50 p-5 font-sans">
@@ -52,14 +57,14 @@ const Navbar = () => {
             
 
             <div className="Profilelogo">
-                {isLogin ? (
-                    <div className="flex justify-between mr-3">
+                {username ? (
+                    <div className="flex justify-between mr-3 items-center">
                     <p className="text-md font-bold ">{localStorage.getItem('Username')}</p>
                         <div className="flex gap-3">
                             <Link to="/profile"> {/* Link to user profile page */}
                                 <img
-                                    className="w-6 h-6 cursor-pointer"
-                                    src={user?.photoURL}
+                                    className="w-6 h-6 cursor-pointer rounded-full m-2"
+                                    src='https://source.unsplash.com/400x400/?smile'
                                 />
                             </Link>
                             <Link to="/">
@@ -77,7 +82,10 @@ const Navbar = () => {
                     <div>
                         <Link to="/signin">
                             <button
-                                onClick={() =>{setIsLogin(true)}}
+                                onClick={() =>{
+                                    setUser(username);
+                                    navigate('/')
+                                }}
                                 className="bg-orange-500 hover:bg-orange-700 text-white py-1 px-2 rounded"
                             >
                                 Login

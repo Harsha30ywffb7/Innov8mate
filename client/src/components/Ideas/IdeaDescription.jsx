@@ -18,29 +18,30 @@
  */
 
 import React from "react";
-import { useParams,Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { BiArrowBack } from 'react-icons/bi';
 import { useState, useEffect } from "react";
 import axios from 'axios'
 
 const IdeaDescription = (props) => {
 
-    const {id} = useParams();
-    const [allIdeasData,setAllIdeasData] = useState([]);
+    const { id } = useParams();
+    const [supported, setSupported] = useState(false);
+    const [allIdeasData, setAllIdeasData] = useState([]);
     const [resIdea, setresIdea] = useState({});
 
-    useEffect(()=>{
+    useEffect(() => {
         callAllIdeasApi()
-    },[]);
+    }, []);
 
-    const callAllIdeasApi =async()=>{
-    try {
-        const response = await axios.get('http://localhost:5000/ideas/allIdeas');
-        setAllIdeasData(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.log(error);
-      }
+    const callAllIdeasApi = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/ideas/allIdeas');
+            setAllIdeasData(response.data);
+            console.log(response.data);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     // Use useEffect to find the idea after data is fetched and id is obtained
@@ -56,29 +57,29 @@ const IdeaDescription = (props) => {
         <div className="bg-white-200 my-10 rounded-lg">
             <div className="flex justify-between mx-32">
                 <div className="w-10 h-10">
-                   <Link to='/pitchideas'>
-                   <BiArrowBack />
-                   </Link>
+                    <Link to='/pitchideas'>
+                        <BiArrowBack />
+                    </Link>
                 </div>
                 <div className="text-xl font-semibold  ">
                     <p>{resIdea.title}</p>
                 </div>
                 <div className="w-10 h-10 rounded-full overflow-hidden">
                     <Link to='/profile'>
-                    <img src="https://source.unsplash.com/400x400/?man" alt="profile" />
+                        <img src="https://source.unsplash.com/400x400/?man" alt="profile" />
                     </Link>
                 </div>
             </div>
 
 
             <div className="mx-32 pb-6 my-10 shadow-lg">
-                
+
                 <div className="text-md ml-20 mb-10 mr-20  ">
                     <div className="font-bold mb-3">
                         <p>Problem Statement</p>
                     </div>
                     <div className="">
-                    {resIdea.problemStatement}
+                        {resIdea.problemStatement}
                     </div>
                 </div>
 
@@ -128,9 +129,14 @@ const IdeaDescription = (props) => {
                 </div>
 
                 <div className="flex justify-center">
-                    <button 
-                    className=" px-2 py-2  rounded-full  bg-orange-500 text-white">Support Idea</button>
+                    <button
+                        onClick={() => setSupported(!supported)}
+                        className={`px-2 py-2 rounded-full ${supported ? 'bg-orange-500' : 'bg-green-400 text-white'}`}
+                    >
+                        {supported ? 'Support Idea' : 'Ready to support'}
+                    </button>
                 </div>
+
             </div>
 
         </div>

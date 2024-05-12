@@ -19,3 +19,9 @@
       - when user supports idea then supporter is true, and data of supporter from localstorage
          should send to the owner who already stored his id in database when posted idea.
       - based on id of profile should fetch from the user data and show it in ideas page for profile when someone seen your idea.
+
+4. issues with page login and reloading, redux data clears after refresh.
+
+5. how to sent request to owner when user clicked on the button of participate/ collaborate/ connect/ support.
+
+6. missing funds needed data in database and Api's .

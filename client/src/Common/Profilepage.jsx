@@ -20,8 +20,6 @@ import { Link } from 'react-router-dom';
  * name
  * 
  */
-
-
 const Profilepage = () => {
     const user = useSelector(state => state.user.item);
     console.log(user)

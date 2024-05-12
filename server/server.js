@@ -1,6 +1,5 @@
 import express from 'express'
 import cors from 'cors'
-import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 
 import UserRouter from './Routes/user-routes.js'
@@ -26,8 +25,6 @@ app.use(cors())
 // )
 
 
-
-
 const PORT = 5000;
 
 app.use('/user',UserRouter)
@@ -40,7 +37,6 @@ app.get('/',(req, res)=>{
     res.send({msg:"This not home"})
 })
 app.listen(PORT, () => {
-   
     console.log(`Server is running on port http://localhost:${PORT}`);
 });
 

@@ -64,6 +64,7 @@ const Postproject = () => {
                     <label className="block text-sm font-medium text-gray-700">Description</label>
                     <textarea
                         name="description"
+                        placeholder='description must be 100 words'
                         value={formData.description}
                         onChange={handleChange}
                         rows="3"
@@ -123,7 +124,8 @@ const Postproject = () => {
                     />
                 </div>
                 <div className='flex justify-center mt-5'>
-                    <button type="submit" className="mx-auto px-2 py-1 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
+                    <button 
+                    type="submit" className="mx-auto px-2 py-1 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
                         Add Project
                     </button>
                 </div>

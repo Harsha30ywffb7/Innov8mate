@@ -15,7 +15,7 @@ const JobHeader = () => {
                         <label className='font-semibold'>
                             Job Type :
                             <select className='rounded-lg font-medium ml-2 px-1 py-1'>
-                                <option value="Part-Time">select</option>
+                                <option value="select">select</option>
                                 <option value="Part-Time">Part-Time</option>
                                 <option value="FullTime">Full-Time</option>
                                 <option value="Contract">Contract</option>

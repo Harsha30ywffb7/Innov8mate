@@ -139,6 +139,11 @@ const appRouter = createBrowserRouter([
     errorElement: <Error />
   },
   {
+    path: '/funding/company/:id',
+    element: <InvestmentPage />,
+    errorElement: <Error />
+  },
+  {
     path: '/jobs/job/:id',
     element: <JobDescription />,
     errorElement: <Error />

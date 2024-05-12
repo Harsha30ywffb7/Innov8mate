@@ -2,7 +2,10 @@ import React from 'react';
 import Company from './CompaniesList.jsx';
 import { BiArrowToRight } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import useCompanies from '../../Utils/hooks/useCompaniesList.js';
 const DashBoard = () => {
+const allcompanies = useCompanies()
+
   return (
     <div className='mx-32 '>
       <div className='flex justify-center mt-8 '>
@@ -18,13 +21,13 @@ const DashBoard = () => {
           </Link>
           <p className='text-center my-4 text-xl font-semibold'>your Companies</p>
           <div className='rounded-lg border-2 border-solid border-slate-300 max-h-[300px] overflow-y-auto no-scrollbar'>
-            <Link to='/funding/company'> <Company /></Link>
-            <Link to='/funding/company'> <Company /></Link>
-            <Link to='/funding/company'> <Company /></Link>
-            <Link to='/funding/company'> <Company /></Link>
-            <Link to='/funding/company'> <Company /></Link>
-            <Link to='/funding/company'> <Company /></Link>
-
+          {
+              allcompanies.map((company)=>(
+                <Link to={'company/'+ company._id}>
+                  <Company key={company._id} company={company}/>
+                </Link>
+              ))
+            }
           </div>
         </div>
 
@@ -37,12 +40,13 @@ const DashBoard = () => {
           </Link>
           <p className='text-center my-4 text-xl font-semibold'>Explore companies</p>
           <div className='rounded-lg border-2 border-solid border-slate-300 max-h-[300px] overflow-y-auto  no-scrollbar'>
-            <Link to='/funding/company'> <Company /></Link>
-            <Link to='/funding/company'> <Company /></Link>
-            <Link to='/funding/company'> <Company /></Link>
-            <Link to='/funding/company'> <Company /></Link>
-            <Link to='/funding/company'> <Company /></Link>
-            <Link to='/funding/company'> <Company /></Link>
+            {
+              allcompanies.map((company)=>(
+                <Link to={'company/'+ company._id}>
+                  <Company key={company._id} company={company}/>
+                </Link>
+              ))
+            }
 
           </div>
         </div>

@@ -22,7 +22,7 @@ const Card = (props) => {
   return (
     <div className="cursor-pointer w-4/12 border border-gray-300 rounded-md m-10 shadow-md">
       <div className="flex gap-5 p-2">
-        <div className="w-15 h-20 ml-2">
+        <div className="w-15 h-10 ml-2">
           <img src='https://source.unsplash.com/400x400/?random' alt="profile" className="rounded-full h-10 w-10" />
         </div>
         <div className="ml-3">
@@ -31,9 +31,9 @@ const Card = (props) => {
         </div>
       </div>
 
-      <div className="p-5">
+      <div className="p-3">
         <div className="text-gray-600">
-          <p className="text-sm px-4 overflow-hidden clamp-2">{props.allIdeasData.description}</p>
+          <p className="text-sm px-4 overflow-hidden line-clamp-3">{props.allIdeasData.description}</p>
         </div>
         <div className="flex justify-around mt-10">
           <button className={`bg-white border-none`} onClick={handleLike}>

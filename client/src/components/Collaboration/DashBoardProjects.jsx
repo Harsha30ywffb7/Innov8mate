@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
 import useProjectList from '../../Utils/hooks/useProjectList';
 import CollabHeader from './CollabHeader';
 import ProjectCard from './ProjectCard';
 
 const ProjectListPage = () => {
     const allProjects = useProjectList();
+    console.log(allProjects)
     return (
         <>
             <CollabHeader />
