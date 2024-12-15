@@ -20,10 +20,11 @@ import { Link } from 'react-router-dom';
  * name
  * 
  */
-const Profilepage = () => {
-    const user = useSelector(state => state.user.item);
-    console.log(user)
 
+const Profilepage = () => {
+    const userData = localStorage.getItem('user');
+    const user = JSON.parse(userData)
+    console.log("user in profile",user)
     return (
         <>
             <div className='bg-gray-200 rounded-md bg-opacity-30'>
@@ -44,7 +45,7 @@ const Profilepage = () => {
 
                 <div className='flex ml-16 mr-16'>
 
-                    <UserProfileCard/>
+                    <UserProfileCard user={user}/>
                     <div className='w-8/12 border-solid border-2 border-gray-200  rounded-lg my-4 mx-5 justify-center flex flex-wrap'>
                         <ProfileFeatureCard featureName='Ideas' ownerText='submitted' collabText='supported'/>
                         <ProfileFeatureCard featureName='Jobs' ownerText='Applied' collabText='saved'/>
