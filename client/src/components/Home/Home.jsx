@@ -9,13 +9,8 @@ import { useSelector } from "react-redux";
 
 const Home = () => {
 
-    const user = useSelector(state=>state.user.item);
+    const user = localStorage.getItem("email");
     const navigate = useNavigate()
-
-    useEffect(()=>{
-        if(user) navigate('/profile')
-        else navigate('/')
-    },[])
 
 
     return (
@@ -30,9 +25,13 @@ const Home = () => {
                     <div className="">
                         <p id="text" className="m-20 mb-10 text-5xl font-semibold">The best website for Innovators that'll help you upskill yourself </p>
                     </div>
-                    <div className=" mt-4 mb-5">
+                   {
+                    !user && (
+                        <div className=" mt-4 mb-5">
                         <Link to='/signin'><button className="px-6 py-2 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600">Get started</button></Link>
                     </div>
+                    )
+                   }
                 </section>
             </header>
             <div className="p-5 rounded-lg mt-7 flex justify-center ">
