@@ -9,7 +9,7 @@ const Navbar = () => {
     const navigate = useNavigate()
     const [user, setUser] = useState(null);
     const [isLogin, setIsLogin] = useState(false);
-    const username = localStorage.getItem('Username');
+    const userData = localStorage.getItem('user');
 
     useEffect(()=>{
 
@@ -17,8 +17,6 @@ const Navbar = () => {
 
     const handleLogout =()=>{
         localStorage.clear()
-       // dispacth(removeUser())
-        //setIsLogin(false)
     }
 
 
@@ -57,7 +55,7 @@ const Navbar = () => {
             
 
             <div className="Profilelogo">
-                {username ? (
+                {userData ? (
                     <div className="flex justify-between mr-3 items-center">
                     <p className="text-md font-bold ">{localStorage.getItem('Username')}</p>
                         <div className="flex gap-3">
@@ -83,7 +81,7 @@ const Navbar = () => {
                         <Link to="/signin">
                             <button
                                 onClick={() =>{
-                                    setUser(username);
+                                    setUser(userData.username);
                                     navigate('/')
                                 }}
                                 className="bg-orange-500 hover:bg-orange-700 text-white py-1 px-2 rounded"
