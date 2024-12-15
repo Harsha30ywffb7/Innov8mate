@@ -25,3 +25,14 @@
 5. how to sent request to owner when user clicked on the button of participate/ collaborate/ connect/ support.
 
 6. missing funds needed data in database and Api's .
+
+
+
+Tasks:
+
+1. Proper login with google and email.
+2. Totally responsive design
+3. UI upgrades
+4. Notifications
+5. Messaging using Websockets.
+6. Load the correct pages from profile.
