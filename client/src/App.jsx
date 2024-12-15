@@ -79,10 +79,6 @@ const appRouter = createBrowserRouter([
         element: <DashBoard />
       },
       {
-        path: '/signin',
-        element: <Signup />
-      },
-      {
         path: '/register',
         element: <RegisterPage />
       },
@@ -127,6 +123,11 @@ const appRouter = createBrowserRouter([
         element: <Contact />
       }
     ],
+  },
+  {
+    path: '/signin',
+    element: <Signup />,
+    errorElement: <Error />
   },
   {
     path: '/profile',

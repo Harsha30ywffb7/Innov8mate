@@ -6,6 +6,7 @@ const signin = async (req, res) => {
 
         // Find the user by email
         const user = await User.findOne({ email  });
+        console.log(user)
         if (!user) {
             return res.status(404).send({ error: 'User not found' });
         }
@@ -18,7 +19,7 @@ const signin = async (req, res) => {
 
         // Here, you would typically generate a token or session
         // For this example, we'll just return a success message
-        res.status(200).json({ message: 'User signed in successfully', user: { email: user.email, username: user.username,id:user.id } });
+        res.status(200).json({ message: 'User signed in successfully', user: user });
     } catch (error) {
         console.error('Error signing in user:', error);
         res.status(500).json({ error: 'Internal server error' });

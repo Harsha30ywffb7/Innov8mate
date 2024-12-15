@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
 const Signup = () => {
   const [data, setData] = useState({
@@ -22,10 +21,10 @@ const Signup = () => {
       });
 
       if (response.status === 200) {
-          localStorage.setItem("email",response.data.user.email);
-          localStorage.setItem("Userid",response.data.user.id);
-          localStorage.setItem("Username",response.data.user.username);
-        
+        localStorage.setItem("email", response.data.user.email);
+        localStorage.setItem("Userid", response.data.user.id);
+        localStorage.setItem("Username", response.data.user.username);
+
         setTimeout(() => {
           navigate('/register');
         }, 2000); // Navigate after 2 seconds
@@ -46,7 +45,7 @@ const Signup = () => {
   };
 
 
-   const  handleSignin = async (e) => {
+  const handleSignin = async (e) => {
     e.preventDefault();
     //after verification send to navigate home page.
     try {
@@ -56,14 +55,14 @@ const Signup = () => {
           'Content-Type': 'application/json'
         }
       });
-      if(response.status=== 200){
-        localStorage.setItem("email",response.data.user.email);
-        localStorage.setItem("Userid",response.data.user.id);
-        localStorage.setItem("Username",response.data.user.username);
+      if (response.status === 200) {
+        localStorage.setItem("user", JSON.stringify(response.data.user));
         navigate('/');
-      console.log(response.data.user.email);
+        console.log(response.data.user);
+        const userdata = localStorage.getItem('user');
+        console.log("userdata in local", userdata);
       }
-     // console.log(response.data);
+      // console.log(response.data);
     } catch (error) {
       console.log("Hello error")
       console.error('Error signing up:', error);
@@ -74,6 +73,7 @@ const Signup = () => {
   const [isSignIn, setisSignIn] = useState(false);
   return (
     <>
+
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
 
@@ -82,7 +82,13 @@ const Signup = () => {
           </h2>
         </div>
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className='border border-black border-2 rounded-xl my-7 p-2 sm:mx-auto sm:w-full sm:max-w-sm mx-auto flex gap-5 items-center justify-center cursor-pointer hover:bg-gray-100'>
+        <img className='w-7 rounded-full' src="https://banner2.cleanpng.com/20180416/xlq/kisspng-g-suite-pearl-river-middle-school-google-software-sign-up-button-5ad4e1a9d11d62.1599053415239008418566.jpg" alt="google logo" />
+        {isSignIn ? (<div>Sign in with Google</div>):(<div>Signup with Google</div>) }
+      </div>
+      <p className='text-center font-semibold'>or</p>
+
+        <div className="mt-7 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
@@ -134,7 +140,7 @@ const Signup = () => {
               </div>
               <div className="mt-2">
                 <input
-                  
+
                   id="password"
                   name="password"
                   type="password"
@@ -148,7 +154,7 @@ const Signup = () => {
             </div>
 
             <div>
-  
+
               {isSignIn ? (
 
                 <button
@@ -182,6 +188,10 @@ const Signup = () => {
           </p>
         </div>
         {errorMessage && <p className='text-sm text-red-500 text-center mt-5'>{errorMessage}</p>}
+
+        
+
+
       </div>
     </>
   )
