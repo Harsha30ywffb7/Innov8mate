@@ -1,4 +1,4 @@
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid';
+import { PhotoIcon} from '@heroicons/react/24/solid';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
@@ -6,16 +6,11 @@ import { useState } from 'react';
 
 const RegisterPage = () =>{
 const userEmail = localStorage.getItem("email");
-console.log(userEmail);
-
-
 
 const handleRegister =async ()=>{
   try{
-    console.log("try is working");
-    console.log("this user email",userEmail);
     const response = await axios.post('http://localhost:5000/user/register',{email:userEmail, ...userData});
-    console.log(response);
+    localStorage.setItem('user', JSON.stringify(response));
     navigate('/');
   }catch(error){
     console.log("this is the error", error);
@@ -92,16 +87,7 @@ const handleRegister =async ()=>{
               <p className="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
             </div>
 
-            <div className="col-span-full">
-              <label htmlFor="photo" className="block text-sm font-medium leading-6 text-gray-900">
-                Photo
-              </label>
-              <div className="mt-2 flex items-center gap-x-3">
-                <UserCircleIcon className="h-12 w-12 text-gray-300" aria-hidden="true" />
-                <input type="file" name="" id="" />
-
-              </div>
-            </div>
+           
 
             <div className="col-span-full">
               <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
